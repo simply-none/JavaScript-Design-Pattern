@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!--  -->
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    // 封装app组件
+    /**
+     * @desc jsx中绑定属性
+     */
+    class App extends React.Component {
+      constructor() {
+        // 继承父类的内容
+        super()
+        // 状态
+        this.state = {
+          title: '电影列表',
+          imgUrl: 'http://p1.music.126.net/ZVuEGZI20dm7Kl_M3_VRpw==/109951165866388138.jpg',
+          movies: ['a', 'b', 'c', 'd'],
+          flag: true
+        }
+      }
+
+      // 所有的组件必须有的
+      render () {
+        const { title, imgUrl, flag } = this.state
+        // 使用括号看起来像个整体，无其他意义
+        return (
+          <div>
+            <div title={ title }>绑定普通属性title</div>
+            <img src={ this.formatUrl(imgUrl, 140) }/>
+            <a href={ this.formatUrl(imgUrl, 140) } target="_blank">百度一下</a>
+
+            { /* 
+              绑定class:
+                注意jsx语法是直接使用的js，所以若与js关键字冲突，需要转为特定的名称 
+                小括号的用处：运算符优先级的关系
+            */ }
+
+            <div className='a b'>绑定class</div>
+            <div className={ 'a b ' + (flag ? 'c' : '') }>绑定class</div>
+            <label htmlFor='呵呵哒'></label>
+
+            { /* 绑定style */ }
+            <div style={ {
+              color: 'red',
+              fontSize: '24px'
+            } }>
+              绑定style
+            </div>
+          </div>
+        )
+      }
+
+      // 格式化url：此处的作用（网易云图片）是图片压缩：节省带宽，缓解服务器压力
+      formatUrl (url, size) {
+        return url + `?param=${size}y${size}`
+      }
+    }
+
+    ReactDOM.render(<App/>, document.getElementById('app'))
+  </script>
+</body>
+</html>

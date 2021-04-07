@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!--  -->
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    /**
+     * @desc 在jsx中使用列表渲染
+     * @notice 列表渲染通常是结合数组的一些方法使用
+     */
+    class App extends React.Component {
+      constructor() {
+        // 继承父类的内容
+        super()
+        // 状态
+        this.state = {
+          movies: ['a', 'b', 'c', 'd']
+        }
+      }
+
+      // 所有的组件必须有的
+      render () {
+        const { movies } = this.state
+        // 使用括号看起来像个整体，无其他意义
+        return (
+          <div>
+            { /* 列表渲染 */ }
+            {
+              movies.map((item, index) => <li>索引：{ index }，项目：{ item }</li>)
+            }
+
+            <hr/>
+            
+            { /* 列表渲染：过滤 */ }
+            {
+              movies.filter(item => {
+                return item > 'b'
+              }).map((item, index) => {
+                return <li>索引：{ index }，项目：{ item }</li>
+              })
+            }
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<App/>, document.getElementById('app'))
+  </script>
+</body>
+</html>
