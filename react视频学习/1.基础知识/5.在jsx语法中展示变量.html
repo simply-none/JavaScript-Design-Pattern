@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!--  -->
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    // 封装app组件
+    /**
+     * @desc 在react中展示变量
+     */
+    class App extends React.Component {
+      constructor() {
+        // 继承父类的内容
+        super()
+        // 状态
+        this.state = {
+          // 1. 可以直接在{}中展示的：Number、String、Array
+          num: 1,
+          str: 'str',
+          arr: [1, 2, 3],
+          // 2. 不会在{}中展示的：null、undefined、Boolean
+          //    需要展示，通常可以使用形如：String()、toString、+''的方法
+          nul: null,
+          und: undefined,
+          bol: true,
+          // 3. 不可在{}中写的：Object
+          obj: {
+            name: 'iuq'
+          }
+        }
+      }
+
+      // 所有的组件必须有的
+      render () {
+        // 使用括号看起来像个整体，无其他意义
+        return (
+          <div>
+            <li>{ this.state.num }</li>
+            <li>{ this.state.str }</li>
+            { /* 数组直接回转为字符串的形式（类似join方法） */ }
+            <li>{ this.state.arr }</li>
+            
+            <li>{ this.state.nul }</li>
+            <li>{ this.state.und }</li>
+            <li>{ this.state.bol }</li>
+            { /* 一些常用的方法 */ }
+            <li>{ this.state.bol ? 'hello world' : null }</li>
+            <li>{ this.state.bol && 'hello world' }</li>
+
+
+            { /* Objects are not valid as a React child */ }
+            { /* <li>{ this.state.obj }</li> */ }
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<App/>, document.getElementById('app'))
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!--  -->
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    // 封装app组件
+    /**
+     * @desc 使用条件渲染和模拟v-if、v-show：
+     * @notice react中，所有的代码（包括条件渲染的写法）都和JavaScript代码一致
+     */
+    class App extends React.Component {
+      constructor() {
+        // 继承父类的内容
+        super()
+        // 状态
+        this.state = {
+          isLogin: true
+        }
+      }
+
+      // 所有的组件必须有的
+      render () {
+        // 在react中，每次渲染都会重新调用render函数，所以可以使用const进行变量声明
+        const { isLogin } = this.state
+        const loginStatus =  (isLogin ? 'block' : 'none')
+
+        // 第一种方式：使用条件判断，适合逻辑较多的情形，可封装成函数形式
+        function login () {
+          if (isLogin) {
+            return <div>当前已登录!</div>
+          } else {
+            return <div>请先登录！</div>
+          }
+        }
+        
+        // 使用括号看起来像个整体，无其他意义
+        return (
+          <div>
+            { /* 第一种方式使用： */ }
+            { login() }
+            
+            { /* 第二种方式：使用三目运算符 */ }
+            { /* 注意：在箭头函数体中调用函数时，就行普通js一样，需要加上括号：this.handle() */ }
+            <button onClick={ () => this.changeStatus() }>
+              {
+                isLogin ? '退出' : '登录'
+              }
+            </button>
+
+            { /* 第三种方式：使用逻辑与 */ }
+            { /* 这种方式和vue的 v-if 类似 */ }
+            {
+              isLogin && <button onClick={ () => this.changeStatus() }>退出</button>
+            }
+
+            {
+              isLogin ? <h1>退出</h1> : <h1>登录</h1>
+            }
+
+            { /* 这种方式和vue的 v-show 类似 */ }
+            <h1 style={ {display: loginStatus } }>
+              { isLogin ? '退出' : '登录' }
+            </h1>
+          </div>
+        )
+      }
+
+      changeStatus () {
+        this.setState({
+          isLogin: !this.state.isLogin
+        })
+      }
+    }
+
+    ReactDOM.render(<App/>, document.getElementById('app'))
+  </script>
+</body>
+</html>

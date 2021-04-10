@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!--  -->
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script type="text/babel">
+    // 封装app组件
+    /**
+     * @desc jsx语法中可以使用任何形式的js表达式
+     */
+    class App extends React.Component {
+      constructor() {
+        // 继承父类的内容
+        super()
+        // 状态
+        this.state = {
+          title: '电影列表',
+          movies: ['a', 'b', 'c', 'd']
+        }
+      }
+
+      // 所有的组件必须有的
+      render () {
+        // 使用括号看起来像个整体，无其他意义
+        return (
+          <div>
+            { /* 1. 运算符表达式： */ }
+            <div>{ 1 + 1 }</div>
+
+            { /* 2. 三元运算符： */ }
+            <div>{ false ? 1 : 0 }</div>
+
+            { /* 3. 函数调用： */ }
+            <div>{ this.handle() }</div>
+          </div>
+        )
+      }
+
+      handle () {
+        return this.state.movies
+      }
+    }
+
+    ReactDOM.render(<App/>, document.getElementById('app'))
+  </script>
+</body>
+</html>
