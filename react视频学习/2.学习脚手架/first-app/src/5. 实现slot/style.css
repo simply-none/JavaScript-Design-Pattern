@@ -1,0 +1,20 @@
+.tab-bar {
+  display: flex;
+}
+
+.tab-item {
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+}
+
+.left-solt,
+.right-solt {
+  width: 70px;
+  background-color: red;
+}
+
+.center-solt {
+  flex: 1;
+  background-color: brown;
+}

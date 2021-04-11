@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 // 或者使用Child.propTypes的形式，都是一样的，都是类的属性
 
 class Child extends Component {
-  // 这个构造函数是可省略的
+  // 这个构造函数是可省略的: props在源码中是默认进行保存的
   // constructor (props) {
   //   super(props)
   // }
