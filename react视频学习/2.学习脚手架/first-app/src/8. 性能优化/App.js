@@ -1,7 +1,7 @@
 /**
  * @desc render函数是否需要被调用
  *    第一种方法：在每个组件中加上生命周期函数shouldComponentUpdate（内部不要深层比较）
- *    第二种方法：针对类组件，让其自动继承自PureComponent组件（而不是Component组件），这个会自动进行比较，只要该组件未引用父级变化的state
+ *    第二种方法：针对类组件，让其自动继承自PureComponent组件（而不是Component组件），这个会自动进行比较(浅层比较)，只要该组件未引用父级变化的state
  *    第三种方法：针对函数组件，在每个函数组件包裹一个memo函数即可和第二种方法一样的效果
  */
 import React, { Component, memo, PureComponent } from 'react'
@@ -53,7 +53,8 @@ export default class App extends Component {
     super(props)
     this.state = {
       name: 'jiu',
-      age: 23
+      age: 23,
+      friends: ['1', '2', '3']
     }
   }
 
@@ -89,6 +90,11 @@ export default class App extends Component {
   increment () {
     this.setState({
       age: 29
+    })
+
+    // 推荐的setState的做法：针对对象而言，千万别改变该对象内部的值，应对该对象进行浅层（一般来说）拷贝后，在进行值的改变，然后赋值
+    this.setState({
+      friends: [...this.state.friends, '78']
     })
   }
 }

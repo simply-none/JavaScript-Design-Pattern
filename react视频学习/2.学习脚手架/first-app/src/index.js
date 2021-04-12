@@ -8,11 +8,14 @@ import ReactDOM from 'react-dom'
 // import App6 from './3. 组件通信/3. 子父组件通信'
 // import App7 from './4. 组件通信案例/App'
 // import App8 from './5. 实现slot/App'
-import App from './8. 性能优化/App'
+// import App from './8. 性能优化/App2'
+// import App from './9. 受控非受控组件/App'
+// import App from './9. 受控非受控组件/App3'
+import App from './10. 高阶组件/App3'
 
 
 ReactDOM.render((
   <div>
-    <App/>
+    <App name="qiu"/>
   </div>
 ), document.getElementById('root'))

@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 // 使用Context进行数据共享
+// 在模块化开发中，若需要使用context，则应该对context对象进行导出导入操作
+// 在类中使用多个context时，仅可使用context.consumer的方式，使用this.context的方式只能获取到最后一个赋值的context对象
+
 
 // 第一步：创建context
 const UserContext = React.createContext({
