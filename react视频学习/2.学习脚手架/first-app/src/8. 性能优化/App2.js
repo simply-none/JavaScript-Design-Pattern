@@ -1,5 +1,13 @@
 /**
  * @desc 全局事件传递：使用events库中的EventEmitter
+ * 
+ * @step 步骤总结：
+ *      1. 安装events库
+ *      2. 导入内部的EventEmitter对象
+ *      3. 创建事件总线对象：eventBus = new EventEmitter()
+ *      4. 某组件发送事件：eventBus.emit(eventName, ...values)
+ *      5. 某组件监听事件：eventBus.addListener(eventName, callback(...values))
+ *      6. 某组件取消监听：eventBus.removeListener(eventName, callback(...values))
  */
 import React, { PureComponent } from 'react'
 import { EventEmitter } from 'events'
