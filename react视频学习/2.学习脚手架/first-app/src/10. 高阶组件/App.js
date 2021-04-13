@@ -12,7 +12,8 @@ class App extends PureComponent {
 
 // 定义高阶组件：
 function highComponent (Component) {
-  // 当使用类表达式时，省略名称，则组件名自动为PureComponent
+  // 当使用类表达式时，省略名称，则组件名自动为
+  // 当直接返回一个匿名组件时，可能是ansyous
   class HighComponent extends PureComponent {
     render () {
       return (

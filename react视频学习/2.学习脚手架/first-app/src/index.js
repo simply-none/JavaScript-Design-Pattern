@@ -10,8 +10,11 @@ import ReactDOM from 'react-dom'
 // import App8 from './5. 实现slot/App'
 // import App from './8. 性能优化/App2'
 // import App from './9. 受控非受控组件/App'
-// import App from './9. 受控非受控组件/App3'
-import App from './10. 高阶组件/App3'
+// import App from './9. 受控非受控组件/App1'
+// import App from './10. 高阶组件/App3'
+// import App from './10. 高阶组件/App6'
+// import App from './11.组件化补充/App'
+import App from './12. react中css 的使用/App'
 
 
 ReactDOM.render((
