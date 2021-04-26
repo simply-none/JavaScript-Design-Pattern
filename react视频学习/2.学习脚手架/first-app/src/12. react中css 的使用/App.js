@@ -6,7 +6,7 @@
  */
 
 import React, { PureComponent } from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 
 import AppWrapperStyle, { OtherStyle } from './style'
 

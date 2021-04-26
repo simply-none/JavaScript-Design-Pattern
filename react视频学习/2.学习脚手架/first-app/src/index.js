@@ -14,7 +14,8 @@ import ReactDOM from 'react-dom'
 // import App from './10. 高阶组件/App3'
 // import App from './10. 高阶组件/App6'
 // import App from './11.组件化补充/App'
-import App from './12. react中css 的使用/App'
+// import App from './12. react中css 的使用/App'
+import App from './13. classnames的使用/App'
 
 
 ReactDOM.render((
