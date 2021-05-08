@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import 'antd/dist/antd.css'
+
 // import { App1, App2 } from './1. 组件的定义方式/App'
 // import App3 from './2. 组件生命周期/App'
 // import App4 from './3. 组件通信/1. 类组件父子通信及属性验证'
