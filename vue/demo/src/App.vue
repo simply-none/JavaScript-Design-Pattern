@@ -1,16 +1,19 @@
 <template>
   <div id="app">
+    <form-test></form-test>
     <get-props msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
 import GetProps from './components/getProps/GetProps.vue'
+import FormTest from './components/form/index.vue'
 
 export default {
   name: 'App',
   components: {
-    GetProps
+    GetProps,
+    FormTest
   }
 }
 </script>

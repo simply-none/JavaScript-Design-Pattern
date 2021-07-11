@@ -10,3 +10,4 @@
    2. `this.$off('event-name')`：移除特定绑定的自定义事件event-name的所有绑定
    3. `this.$off('event-name', callback)`：移除特定绑定的自定义事件event-name的特定绑定(callback)
    4. `this.$off([event1, event2, ...])`：移除多个绑定事件
+5. 项目开发时，若报错，可直接进行线上断点调试（找到报错的文件行数即可，然后进行断点，再次刷新，找到报错的步骤）
