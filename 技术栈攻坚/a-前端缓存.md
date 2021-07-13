@@ -229,3 +229,5 @@ _模式 3：两者结合（反例，非常危险）_：`Cache-Control: max-age=6
 6. [前端缓存方案](https://www.google.com.hk/search?q=%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98%E6%96%B9%E6%A1%88&oq=%E5%89%8D%E7%AB%AF%E7%BC%93%E5%AD%98&aqs=chrome.1.69i57j0l6j69i65.6513j0j1&sourceid=chrome&ie=UTF-8),chrome search
 7. [详解web缓存](https://zhuanlan.zhihu.com/p/90507417),知乎,llyo
 8. [浅谈 Web 缓存](http://www.alloyteam.com/2016/03/discussion-on-web-caching/),alloyteam,TAT.yana
+9. [谨慎处理 Service Worker 的更新](https://zhuanlan.zhihu.com/p/51118741),知乎,小蘑菇小哥
+10. [借助Service Worker和cacheStorage缓存及离线开发](https://www.zhangxinxu.com/wordpress/2017/07/service-worker-cachestorage-offline-develop/),张鑫旭
