@@ -108,6 +108,41 @@ _注意事项：_
 
 ## 配置缓存
 
+### 基础内容
+
+> nginx变量有哪些？
+
+**_基础命令_**：
+
+
+
+**_配置文件信息_**：
+
+```nginx
+# 主配置文件: nginx.conf
+http {
+  # 设置子配置文件地址
+  include /Users/kejun/Nginx/configs/*.conf;
+}
+
+# 子配置文件：/Users/kejun/Nginx/configs/child.conf
+server {
+  listen 9090;
+  server_name localhost;
+
+  # 接口代理
+  # 作为边缘节点的index.html不需要设置缓存
+  location / {
+    root /Users/kejun/workspace/h6_f1/html;
+    index Index.html Index.html;
+  }
+}
+
+```
+
+**_last-modified_**：
+- 打开方法：使用命令`ssi_last_modified on;`
+
 > [一文理清 nginx 中的 location 配置（系列一）](https://segmentfault.com/a/1190000022315733)
 > [Nginx 客户端缓存Etag和If-None-Match](https://blog.csdn.net/qq_34556414/article/details/106337292)
 
@@ -116,3 +151,9 @@ _注意事项：_
 1. [nginx服务无法停止（Windows）](https://www.cnblogs.com/deepalley/p/11108634.html)
 2. [Nginx Gzip模块启用和配置指令详解](https://blog.csdn.net/liupeifeng3514/article/details/79018334?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_baidulandingword-1&spm=1001.2101.3001.4242)
 3. [nginx开启gzip压缩功能遇到的坑](https://blog.csdn.net/hl_java/article/details/81946228)
+4. [关于nginx的last-modified及强制打开last-modified的方法](https://blog.p2hp.com/archives/4491)
+5. [模块化配置多个Nginx站点](https://arthaskj.gitee.io/mybook/book/src/md/nginx/config.html)
+
+## 思考
+
+1. [JavaScript清除浏览器缓存的方法有？](https://www.google.com.hk/search?q=javascript%E6%B8%85%E9%99%A4%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98&oq=javascript%E6%B8%85%E9%99%A4%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98&aqs=chrome..69i57.7948j0j1&sourceid=chrome&ie=UTF-8)

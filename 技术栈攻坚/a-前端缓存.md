@@ -131,17 +131,19 @@ _Expires_：
 _cache-control_：
 
 - eg：`Cache-control: max-age=2592000`
+- 定义：设置相对过期时间
 - 常用属性值有：
   - max-age：此文件在本地缓存的有效时间，到期时应该重新验证，但无方法确保该段时间内服务器文件不会修改，为了让浏览器下载最新的文件，可使用一些构建工具，例如 webpack，比如将 hash 值加入到文件中，此时对浏览器来说就是一个新的文件，就会从服务器获取新的，自然旧的缓存就没有了，适用于 css、js、图片
   - must-revalidate：若超过了 max-age 设置的时间，浏览器必须发送请求，验证资源是否有效
   - no-cache：不意味着没有缓存，只是告诉浏览器在使用缓存之前先验证服务器上的资源，到期时必须重新验证；语义上表示下次请求时不要直接使用缓存而需要比对，并不对本地请求进行限制。故浏览器处理当前页面时，可以放心使用缓存；需要和 ETag 一起使用，浏览器将发送一个简单的请求验证文件状态，适用于 html
-  - no-store：真正的不要缓存，所有的都不缓存，每次请求资源时都会发送请求
+  - no-store：真正的不要缓存，所有的都不缓存，每次请求资源时都会发送请求；对于一些十分重要的信息，比如提交的订单页面，使用这个可防止回退步骤重新提交
   - public：所有内容都能缓存，包括客户端、代理（cdn）
   - private：所有内容只有客户端才能缓存，代理服务器不能缓存。默认值
 - 所有的属性值可以混合使用，以逗号隔开，混合使用时，[优先级如下](https://web.dev/http-cache/)：
   ![](imgs/cache-control属性值优先级.png)
   又：
   ![](imgs/cache-control%20指令使用.png)
+
 
 **_协商缓存_**（对比缓存）：当强制缓存失效时，就需要使用协商缓存，由服务器决定缓存内容是否失效
 
@@ -231,3 +233,6 @@ _模式 3：两者结合（反例，非常危险）_：`Cache-Control: max-age=6
 8. [浅谈 Web 缓存](http://www.alloyteam.com/2016/03/discussion-on-web-caching/),alloyteam,TAT.yana
 9. [谨慎处理 Service Worker 的更新](https://zhuanlan.zhihu.com/p/51118741),知乎,小蘑菇小哥
 10. [借助Service Worker和cacheStorage缓存及离线开发](https://www.zhangxinxu.com/wordpress/2017/07/service-worker-cachestorage-offline-develop/),张鑫旭
+11. [前端性能优化：配置ETag](https://www.cnblogs.com/goloving/p/9379127.html),未看完
+12. [前端部署 无感更新](https://www.google.com.hk/search?q=%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2+%E6%97%A0%E6%84%9F%E6%9B%B4%E6%96%B0&oq=%E5%89%8D%E7%AB%AF%E9%83%A8%E7%BD%B2+%E6%97%A0%E6%84%9F%E6%9B%B4%E6%96%B0&aqs=chrome..69i57.8741j0j1&sourceid=chrome&ie=UTF-8)
+13. [vue项目部署的最佳实践](https://mp.weixin.qq.com/s?__biz=MzUzMjA3MTI2NQ==&mid=2247488411&idx=1&sn=b57c1e8992b75d4ccb15b2f4bcff7059&chksm=fab98595cdce0c83bc5c42afa9ea0f5661c4b4ff4163758a0d2eb99d430c09212f1596b91916&mpshare=1&scene=1&srcid=0601FiutkyXo91U9HqxHo6Pa&sharer_sharetime=1590978873052&sharer_shareid=d10c9bb97e31b527e28cc510f7fa6fd1&key=cf0f81dc433c22aa5b2d7281ebf673ef6be96257b36767ef9d28aff53362354d81038ef34df5a18f49bfeb37f784016db658cc072e57a8a476e6c61f04c1b810dd5c3122c15d1705f58341fafe01ac96&ascene=1&uin=NDI3MTYxMTI2&devicetype=Windows%2010%20x64&version=62090070&lang=zh_CN&exportkey=ATDZPmvFcEPSV3aB8knJJdQ=&pass_ticket=bNMG1HBeNR0UmhIeRNERFGwOl288CSGYdHhtEA0d4/kutkTwefZk7XayKF0CtIlO),开课吧技术团队,未看完
